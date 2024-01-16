@@ -1,0 +1,45 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.produktif_rpl;
+
+/**
+ *
+ * @author ASUS
+ */
+import java.util.Scanner;
+
+public class Produktif_Rpl {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.print("Masukkan kecepatan (km/jam): ");
+        double kecepatan = input.nextDouble();
+        System.out.print("Masukkan waktu (jam): ");
+        double waktu = input.nextDouble();
+        
+        double jarak = 0;
+        double pesan = 0; 
+        
+        if (kecepatan != 0 && waktu != 0) {
+           
+            jarak = waktu * kecepatan;
+            pesan = jarak;
+            System.out.println("Jarak = " + pesan + " km");
+        } else if (jarak != 0 && kecepatan != 0) {
+          
+            waktu = jarak / kecepatan;
+            pesan = waktu;
+            System.out.println("Waktu = " + pesan + " jam");
+        } else if (jarak != 0 && waktu != 0) {
+           
+            kecepatan = jarak / waktu;
+            pesan = kecepatan;
+            System.out.println("Kecepatan = " + pesan + " km/jam");
+        } else {
+            System.out.println("Anda harus mengisi dua dari tiga nilai (Jarak, Kecepatan, atau Waktu) untuk menghitung yang ketiga.");
+        }
+    }
+}
