@@ -1,0 +1,107 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ */
+
+package com.mycompany.percabangan_fisika_sauqyrahmatulramadhan.docx;
+
+/**
+ *
+ * @author ASUS
+ */
+import java.util.Scanner;
+public class Percabangan_Fisika_SauqyRahmatulRamadhanDocx {
+
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+        
+        System.out.println("Program Kumpulan Rumus Fisika");
+        System.out.println("Pilih operasi:");
+        System.out.println("1. Hitung Kecepatan");
+        System.out.println("2. Hitung Jarak");
+        System.out.println("3. Hitung Usaha");
+        System.out.println("4. Hitung Gaya");
+        System.out.println("5. Hitung Daya");
+        
+        int pilihan = input.nextInt();
+        
+        switch (pilihan) {
+            case 1:
+                System.out.print("Masukkan kecepatan awal (m/s): ");
+                double kecepatanAwal = input.nextDouble();
+                System.out.print("Masukkan percepatan (m/s^2): ");
+                double percepatan = input.nextDouble();
+                System.out.print("Masukkan waktu (s): ");
+                double waktu = input.nextDouble();
+                double kecepatanAkhir = hitungKecepatan(kecepatanAwal, percepatan, waktu);
+                System.out.println("Kecepatan akhir adalah " + kecepatanAkhir + " m/s");
+                break;
+                
+            case 2:
+                System.out.print("Masukkan kecepatan awal (m/s): ");
+                kecepatanAwal = input.nextDouble();
+                System.out.print("Masukkan waktu (s): ");
+                waktu = input.nextDouble();
+                double jarak = hitungJarak(kecepatanAwal, waktu);
+                System.out.println("Jarak yang ditempuh adalah " + jarak + " m");
+                break;
+                
+            case 3:
+                System.out.print("Masukkan gaya (N): ");
+                double gaya = input.nextDouble();
+                System.out.print("Masukkan jarak (m): ");
+                jarak = input.nextDouble();
+                double usaha = hitungUsaha(gaya, jarak);
+                System.out.println("Usaha yang dilakukan adalah " + usaha + " Joule");
+                break;
+                
+            case 4:
+                System.out.print("Masukkan massa (kg): ");
+                double massa = input.nextDouble();
+                System.out.print("Masukkan percepatan (m/s^2): ");
+                percepatan = input.nextDouble();
+                double gayaHasil = hitungGaya(massa, percepatan);
+                System.out.println("Gaya yang bekerja adalah " + gayaHasil + " N");
+                break;
+                
+            case 5:
+                System.out.print("Masukkan usaha (Joule): ");
+                usaha = input.nextDouble();
+                System.out.print("Masukkan waktu (s): ");
+                waktu = input.nextDouble();
+                double daya = hitungDaya(usaha, waktu);
+                System.out.println("Daya yang dihasilkan adalah " + daya + " Watt");
+                break;
+                
+            default:
+                System.out.println("Pilihan tidak valid.");
+                break;
+        }
+        
+        input.close();
+    }
+    
+    public static double hitungKecepatan(double kecepatanAwal, double percepatan, double waktu) {
+        return kecepatanAwal + percepatan * waktu;
+    }
+    
+    public static double hitungJarak(double kecepatanAwal, double waktu) {
+        return kecepatanAwal * waktu;
+    }
+    
+    public static double hitungUsaha(double gaya, double jarak) {
+        return gaya * jarak;
+    }
+    
+    public static double hitungGaya(double massa, double percepatan) {
+        return massa * percepatan;
+    }
+    
+    public static double hitungDaya(double usaha, double waktu) {
+        if (waktu == 0) {
+            System.out.println("Waktu tidak boleh nol");
+            return 0.0;
+        } else {
+            return usaha / waktu;
+        }
+    }
+}
